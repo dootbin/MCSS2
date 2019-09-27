@@ -217,8 +217,6 @@ func main() {
 
 		}
 
-
-
 	}
 
 	os.RemoveAll(tmp)
