@@ -17,13 +17,6 @@ var (
 	SaveDiameter string
 	//SaveName Name that will prefix save files
 	SaveName string
-	//FTPUser Ftp username
-	FTPUser string
-	//FTPPassword Ftp password
-	FTPPassword string
-	//FTPURL FTP url
-	FTPURL string
-	//WorldName world name
 	WorldName string
 	//WebHookURL webhook url string
 	WebHookURL string
@@ -37,9 +30,6 @@ type configStruct struct {
 	ServerName          string `json:"ServerName"`
 	SaveDiameter        string `json:"SaveDiameter"`
 	SaveName            string `json:"SaveName"`
-	FTPPassword         string `json:"FTPPassword"`
-	FTPUser             string `json:"FTPUser"`
-	FTPURL              string `json:"FTPURL"`
 	WorldName           string `json:"WorldName"`
 	WebHookURL          string `json:"WebHookURL"`
 }
@@ -66,10 +56,7 @@ func ReadConfig() error {
 	ServerName = config.ServerName
 	SaveDiameter = config.SaveDiameter
 	SaveName = config.SaveName
-	FTPPassword = config.FTPPassword
-	FTPURL = config.FTPURL
 	WorldName = config.WorldName
-	FTPUser = config.FTPUser
 	WebHookURL = config.WebHookURL
 
 	return nil
