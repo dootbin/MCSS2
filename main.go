@@ -40,15 +40,10 @@ func copyRegions(tmp string, targetDirectory string, saveDiameter int) {
 			targetFile := targetDirectory + "/" + filename
 			saveTarget := tmp + "/" + filename
 
-			err := copy.Copy(targetFile, saveTarget)
+			_ = copy.Copy(targetFile, saveTarget)
 
-			if err != nil {
+			counter++
 
-				LogReport += filename + " FAILED TO COPY\n"
-
-			} else {
-				counter++
-			}
 		}
 	}
 
