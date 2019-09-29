@@ -108,8 +108,9 @@ func main() {
 		fmt.Println(err.Error())
 	}
 
-	saveDiameter, err := strconv.Atoi(config.SaveDiameter)
-
+	saveDiameter, _ := strconv.Atoi(config.SaveDiameter)
+	saveEnd, _ := strconv.Atoi(config.SaveEnd)
+	saveNether, _ := strconv.Atoi(config.SaveNether)
 	//var saveDirectory = config.SaveDir
 	var serverRootDirectory = config.ServerRootDirectory
 	var serverName = config.ServerName
@@ -147,23 +148,33 @@ func main() {
 
 	}
 
-	//Save ender = saveDiameter/8
-	enderDiameter := saveDiameter
-	enderSource := fmt.Sprintf("/%s/%s/%s_the_end/DIM1/region", serverRootDirectory, serverName, worldName)
 
-	//copy ender regions to tmp folder.
-	enderDest := fmt.Sprintf("/%s/%s_the_end/DIM1/region", tmp, worldName)
-	LogReport += "Attempted to Copy the end\n"
-	copyRegions(enderDest, enderSource, enderDiameter)
 
-	//Save Nether = SaveDiameter/8
-	netherDiameter := saveDiameter
-	netherSource := fmt.Sprintf("/%s/%s/%s_nether/DIM-1/region", serverRootDirectory, serverName, worldName)
+	if saveEnd == 1 {
 
-	//copy nether regions to tmp folder.
-	netherDest := fmt.Sprintf("/%s/%s_nether/DIM-1/region", tmp, worldName)
-	LogReport += "Attempted to Copy Nether\n"
-	copyRegions(netherDest, netherSource, netherDiameter)
+		//Save ender = saveDiameter/8
+		enderDiameter := saveDiameter
+		enderSource := fmt.Sprintf("/%s/%s/%s_the_end/DIM1/region", serverRootDirectory, serverName, worldName)
+
+		//copy ender regions to tmp folder.
+		enderDest := fmt.Sprintf("/%s/%s_the_end/DIM1/region", tmp, worldName)
+		LogReport += "Attempted to Copy the end\n"
+		copyRegions(enderDest, enderSource, enderDiameter)
+
+	}
+
+	if saveNether == 1 {
+
+		//Save Nether = SaveDiameter/8
+		netherDiameter := saveDiameter
+		netherSource := fmt.Sprintf("/%s/%s/%s_nether/DIM-1/region", serverRootDirectory, serverName, worldName)
+
+		//copy nether regions to tmp folder.
+		netherDest := fmt.Sprintf("/%s/%s_nether/DIM-1/region", tmp, worldName)
+		LogReport += "Attempted to Copy Nether\n"
+		copyRegions(netherDest, netherSource, netherDiameter)
+
+	}
 
 	//copy overworld regions to tmp folder.
 	overworldSource := fmt.Sprintf("/%s/%s/%s/region", serverRootDirectory, serverName, worldName)

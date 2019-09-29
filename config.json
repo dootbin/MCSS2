@@ -5,5 +5,7 @@
   "SaveName": "mc_test",
   "ServerName": "mc_test",
   "WorldName": "world",
-  "WEBHOOKURL": "WEBHOOKURL"
+  "WEBHOOKURL": "WEBHOOKURL",
+  "SaveEnd": "SaveEnd",
+  "SaveNether": "SaveNether"
 }

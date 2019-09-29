@@ -7,16 +7,22 @@ import (
 )
 
 var (
-	//ServerRootDirectory contains folder with server folder
-	ServerRootDirectory string
-	//ServerName name of directory spigot.jar is located - name of your server
-	ServerName string
-	//SaveDir contains output save directory
-	SaveDir string
+
 	//SaveDiameter Diamater of target save
 	SaveDiameter string
+	//SaveDir contains output save directory
+	SaveDir string
+	//SaveEnd option to save end world
+	SaveEnd string
 	//SaveName Name that will prefix save files
 	SaveName string
+	//SaveNether option to save nether world
+	SaveNether string
+	//ServerName name of directory spigot.jar is located - name of your server
+	ServerName string
+	//ServerRootDirectory contains folder with server folder
+	ServerRootDirectory string
+	//WorldName name of world to save
 	WorldName string
 	//WebHookURL webhook url string
 	WebHookURL string
@@ -25,11 +31,14 @@ var (
 )
 
 type configStruct struct {
-	SaveDir             string `json:"SaveDir"`
-	ServerRootDirectory string `json:"ServerRootDirectory"`
-	ServerName          string `json:"ServerName"`
+
 	SaveDiameter        string `json:"SaveDiameter"`
+	SaveDir             string `json:"SaveDir"`
+	SaveEnd             string `json:"SaveEnd"`
 	SaveName            string `json:"SaveName"`
+	SaveNether          string `json:"SaveNether"`
+	ServerName          string `json:"ServerName"`
+	ServerRootDirectory string `json:"ServerRootDirectory"`
 	WorldName           string `json:"WorldName"`
 	WebHookURL          string `json:"WebHookURL"`
 }
@@ -51,11 +60,12 @@ func ReadConfig() error {
 		return err
 	}
 
-	ServerRootDirectory = config.ServerRootDirectory
-	SaveDir = config.SaveDir
-	ServerName = config.ServerName
 	SaveDiameter = config.SaveDiameter
+	SaveDir = config.SaveDir
 	SaveName = config.SaveName
+	SaveNether = config.SaveNether
+	ServerName = config.ServerName
+	ServerRootDirectory = config.ServerRootDirectory
 	WorldName = config.WorldName
 	WebHookURL = config.WebHookURL
 
