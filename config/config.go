@@ -62,6 +62,7 @@ func ReadConfig() error {
 
 	SaveDiameter = config.SaveDiameter
 	SaveDir = config.SaveDir
+	SaveEnd = config.SaveEnd
 	SaveName = config.SaveName
 	SaveNether = config.SaveNether
 	ServerName = config.ServerName
