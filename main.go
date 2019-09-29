@@ -212,12 +212,12 @@ func main() {
 
 		if d < 1 {
 
-			fileToDelete = saveName + strconv.Itoa(lastMonth) + "." + strconv.Itoa(d) + "." + strconv.Itoa(y) + ".tar.gz"
+			fileToDelete = saveName + strconv.Itoa(lastMonth) + "." + strconv.Itoa(d) + "." + strconv.Itoa(y-1) + ".tar.gz"
 			_ = archiveDelete(saveLocation, fileToDelete)
 
 		} else {
 
-			fileToDelete = saveName + strconv.Itoa(lastMonth) + "." + strconv.Itoa(d) + "." + strconv.Itoa(y-1) + ".tar.gz"
+			fileToDelete = saveName + strconv.Itoa(lastMonth) + "." + strconv.Itoa(d) + "." + strconv.Itoa(y) + ".tar.gz"
 			_ = archiveDelete(saveLocation, fileToDelete)
 
 		}
