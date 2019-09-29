@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 )
 
 var (
@@ -47,8 +48,13 @@ type configStruct struct {
 //ReadConfig reads config.json file.
 func ReadConfig() error {
 
-	executableLocation, _ := os.Executable()
-	configLocation := executableLocation + "/config.json"
+	executableLocation, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+
+	exPath := filepath.Dir(executableLocation)
+	configLocation := exPath + "/config.json"
 	file, err := ioutil.ReadFile(configLocation)
 
 	if err != nil {
@@ -67,6 +73,7 @@ func ReadConfig() error {
 	SaveDir = config.SaveDir
 	SaveName = config.SaveName
 	SaveNether = config.SaveNether
+	SaveEnd = config.SaveEnd
 	ServerName = config.ServerName
 	ServerRootDirectory = config.ServerRootDirectory
 	WorldName = config.WorldName
