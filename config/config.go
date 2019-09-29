@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"os"
 )
 
 var (
@@ -46,7 +47,9 @@ type configStruct struct {
 //ReadConfig reads config.json file.
 func ReadConfig() error {
 
-	file, err := ioutil.ReadFile("./config.json")
+	executableLocation, _ := os.Executable()
+	configLocation := executableLocation + "/config.json"
+	file, err := ioutil.ReadFile(configLocation)
 
 	if err != nil {
 		fmt.Println(err.Error())
