@@ -12,12 +12,12 @@ import (
 	"os"
 	"strconv"
 	"time"
-
-	"github.com/dootbin/MCSS2/config"
-	"github.com/dootbin/MCSS2/copy"
-	"github.com/dootbin/MCSS2/messenger"
+	"./config"
+	"./copy"
+	"./messenger"
 	"github.com/jinzhu/now"
 	"github.com/mholt/archiver"
+
 )
 
 //LogReport Report that will be sent out.
@@ -111,7 +111,6 @@ func main() {
 	saveDiameter, _ := strconv.Atoi(config.SaveDiameter)
 	saveEnd, _ := strconv.Atoi(config.SaveEnd)
 	saveNether, _ := strconv.Atoi(config.SaveNether)
-	//var saveDirectory = config.SaveDir
 	var serverRootDirectory = config.ServerRootDirectory
 	var serverName = config.ServerName
 	var saveName = config.SaveName
