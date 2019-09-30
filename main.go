@@ -160,7 +160,7 @@ func main() {
 	if saveNether == 1 {
 
 		//Save Nether = SaveDiameter/8
-		netherDiameter := saveDiameter
+		netherDiameter := saveDiameter / 8
 		netherSource := fmt.Sprintf("/%s/%s/%s_nether/DIM-1/region", serverRootDirectory, serverName, worldName)
 
 		//copy nether regions to tmp folder.
