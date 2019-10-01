@@ -210,7 +210,7 @@ func main() {
 
 	} else {
 
-		if d < 1 {
+		if d == 1 {
 
 			fileToDelete = saveName + "." + strconv.Itoa(lastMonth) + "." + strconv.Itoa(d) + "." + strconv.Itoa(y-1) + ".tar.gz"
 			_ = archiveDelete(saveLocation, fileToDelete)
